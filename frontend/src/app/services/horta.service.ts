@@ -6,7 +6,7 @@ import { Injectable, inject } from '@angular/core';
 })
 export class HortaService {
   http = inject(HttpClient)
-  url = "localhost:3000/"
+  url = "http://localhost:3000/"
 
   getSensorData() {
     return this.http.get(this.url + "sensor-data")
