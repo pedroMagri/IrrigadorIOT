@@ -14,7 +14,7 @@ export class SensorDataController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string): Promise<SensorDataEntity> {
+  findOne(@Param('id') id: number): Promise<SensorDataEntity> {
     return this.sensorDataService.findOne(+id);
   }
 
@@ -27,7 +27,7 @@ export class SensorDataController {
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateSensorDataDto: UpdateSensorDataDto): Promise<SensorDataEntity> {
+  update(@Param('id') id: number, @Body() updateSensorDataDto: UpdateSensorDataDto): Promise<SensorDataEntity> {
     const sensorDataEntity = new SensorDataEntity();
     sensorDataEntity.soilMoisturePercentage = updateSensorDataDto.soilMoisturePercentage;
     sensorDataEntity.moistured = updateSensorDataDto.moistured;
@@ -35,7 +35,7 @@ export class SensorDataController {
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string): Promise<void> {
+  remove(@Param('id') id: number): Promise<void> {
     return this.sensorDataService.remove(+id);
   }
 }
